@@ -9,7 +9,7 @@ bool Object_Alliance::init(int _tag)
 	m_iState		= WALK;
 	m_iPrevState	= WALK;
 	m_iDirection	= RIGHT;
-	m_fMoveSpeed	= 300.0f;
+	m_fMoveSpeed	= 100.0f;
 	m_iTag			= _tag;
 	m_iHP			= 0; // LiveFlag를 true로 바꿔줄 때 tag를 이용해서 해보자.
 	m_iFrame		= 0;
