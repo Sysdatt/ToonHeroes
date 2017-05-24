@@ -9,9 +9,9 @@ bool Object_Alliance::init(int _tag)
 	m_iState		= WALK;
 	m_iPrevState	= WALK;
 	m_iDirection	= RIGHT;
-	m_fMoveSpeed	= 100.0f;
+	m_fMoveSpeed	= 300.0f;
 	m_iTag			= _tag;
-	m_iHP			= 0; // LiveFlag¸¦ true·Î ¹Ù²ãÁÙ ¶§ tag¸¦ ÀÌ¿ëÇØ¼­ ÇØº¸ÀÚ.
+	m_iHP			= 0; // LiveFlagë¥¼ trueë¡œ ë°”ê¿”ì¤„ ë•Œ tagë¥¼ ì´ìš©í•´ì„œ í•´ë³´ì.
 	m_iFrame		= 0;
 	m_fFrameDelay	= 0.0f;
 	m_bLiveFlag		= false;
@@ -21,7 +21,7 @@ bool Object_Alliance::init(int _tag)
 		allianceSprite = Sprite::create("sword_walk_0.png");
 	}
 
-	allianceSprite->setPosition(Point(3000, 3000)); //È­¸é ¹Û¿¡ ¹Ì¸® ¸¸µé¾î ³õ±â.
+	allianceSprite->setPosition(Point(3000, 3000)); //í™”ë©´ ë°–ì— ë¯¸ë¦¬ ë§Œë“¤ì–´ ë†“ê¸°.
 	allianceSprite->setScale(0.2f);
 	allianceSprite->setAnchorPoint(Point(0, 0));
 	this->addChild(allianceSprite);
@@ -35,7 +35,7 @@ void Object_Alliance::action(float _dt)
 
 	m_iState = WALK;
 	
-	// Ãæµ¹Ã¼Å© ÇÔ¼ö
+	// ì¶©ëŒì²´í¬ í•¨ìˆ˜
 
 	if (m_iState == WALK)
 	{
@@ -63,7 +63,7 @@ void Object_Alliance::animation(float _dt)
 	{
 	case WALK:
 
-		if (m_iTag == SWORD) //Ä®µç µ¿·á°¡ °ÉÀ» ¶§ ¾Ö´Ï¸ŞÀÌ¼Ç
+		if (m_iTag == SWORD) //ì¹¼ë“  ë™ë£Œê°€ ê±¸ì„ ë•Œ ì• ë‹ˆë©”ì´ì…˜
 		{
 			sprintf_s(szString, "%s%d.png", "sword_walk_", m_iFrame);
 		}
