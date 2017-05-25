@@ -10,11 +10,15 @@ bool Object_Alliance::init(int _tag)
 	m_iPrevState	= WALK;
 	m_iDirection	= RIGHT;
 	m_fMoveSpeed	= 100.0f;
+	m_pTargetTower	= NULL;
+	
 	m_iTag			= _tag;
+	m_iObjTag		= PLAYER;
 	m_iHP			= 0; // LiveFlag를 true로 바꿔줄 때 tag를 이용해서 해보자.
 	m_iFrame		= 0;
 	m_fFrameDelay	= 0.0f;
 	m_bLiveFlag		= false;
+	isAttack		= false;
 
 	if (m_iTag == SWORD)
 	{
@@ -35,7 +39,7 @@ void Object_Alliance::action(float _dt)
 
 	m_iState = WALK;
 	
-	// 충돌체크 함수
+	m_pTargetTower = Core::sharedManager()->TM.CollisionCheckAboutTower(this);
 
 	if (m_iState == WALK)
 	{
@@ -55,6 +59,7 @@ void Object_Alliance::animation(float _dt)
 		m_iPrevState = m_iState;
 		m_iFrame = 0;
 		m_fFrameDelay = 0.0f;
+		isAttack = false;
 	}
 
 	char szString[128] = { 0 };
@@ -77,6 +82,43 @@ void Object_Alliance::animation(float _dt)
 			m_fFrameDelay = 0.f;
 			m_iFrame++;
 		}
+
+		if (m_iTag == SWORD)
+		{
+			if (m_iFrame > 9)
+				m_iFrame = 0;
+		}
+
+		break;
+
+	case ATTACK:
+		if (m_iTag == SWORD)
+		{
+			sprintf_s(szString, "%s%d.png", "sword_attack_", m_iFrame);
+		}
+
+		allianceSprite->initWithFile(szString);
+		m_fFrameDelay += _dt;
+
+		if (m_fFrameDelay > 0.1f)
+		{
+			m_fFrameDelay = 0.f;
+			m_iFrame++;
+		}
+
+		if (m_iFrame == 6 && isAttack == false)
+		{
+			if (m_pTargetTower != NULL)
+			{
+				m_pTargetTower->m_iHp--;
+				isAttack = true;
+				if (m_pTargetTower->m_iHp == 0)
+					m_pTargetTower->setLiveFlag(false);
+			}
+		}
+
+		if (m_iFrame == 7)
+			isAttack = false;
 
 		if (m_iTag == SWORD)
 		{

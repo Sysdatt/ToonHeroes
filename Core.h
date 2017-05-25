@@ -10,6 +10,10 @@ enum TOWER_TAG {	// 타워의 태그 값
 	P_TOWER, E_TOWER
 };
 
+enum OBJECT_TAG {
+	PLAYER, ENEMY
+};
+
 enum OBJECT_STATE {
 	IDLE, WALK , ATTACK
 };

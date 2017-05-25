@@ -37,3 +37,28 @@ void TowerManager::dealloc() // µ¿Àû ÇÒ´ç Ç®±â ( Á¾·á ½Ã or ½ºÅ×ÀÌÁö ÀÌµ¿ ½Ã ½ÃÇ
 		delete(m_pTowerList[i]);
 	}
 }
+
+Object_Tower* TowerManager::CollisionCheckAboutTower(Object_Alliance* _alliance)
+{
+	for (int i = 0; i < MAX_TOWER; i++)
+	{
+		if (m_pTowerList[i] == NULL) continue;
+		if (m_pTowerList[i]->getLiveFlag() == false) continue;
+
+		if (m_pTowerList[i]->getTag() == E_TOWER)
+		{
+			if (_alliance->m_iObjTag == PLAYER)
+			{
+				float x = m_pTowerList[i]->getPosition().x;
+				float x2 = _alliance->getPosition().x;
+				if (m_pTowerList[i]->getPosition().x - _alliance->allianceSprite->getPosition().x < 50.0f)
+				{
+					_alliance->m_iState = ATTACK;
+					return m_pTowerList[i];
+				}
+			}
+		}
+	}
+
+	return NULL;
+}

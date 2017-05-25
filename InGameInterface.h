@@ -1,3 +1,4 @@
+#pragma once
 #include "Core.h"
 
 class InGameInterface : public Layer
