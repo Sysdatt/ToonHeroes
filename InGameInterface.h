@@ -11,6 +11,10 @@ public:
 	Sprite* m_CurPlayerHp;
 	Sprite* m_CurEnemyHp;
 
+	Sprite* m_SwordMenu;
+	Sprite* m_F_NinjaMenu;
+	Sprite* m_M_NinjaMenu;
+
 public:
 
 	virtual bool init();

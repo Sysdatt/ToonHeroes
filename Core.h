@@ -22,7 +22,7 @@ enum DIRECTION {
 };
 
 enum PLAYER_ALLIANCE {
-	SWORD
+	SWORD, F_NINJA, M_NINJA
 };
 
 class Core
@@ -45,6 +45,7 @@ public: // 싱글톤 멤버 선언
 	int m_iStage; //현재 스테이지
 	bool isKeyDown;  // 현재 키가 눌렸나? ( 테스트 용 ) 객체 만들 때
 	Point PlayerStartPos; // 플레이어 동료 객체 시작 위치
+	EventListenerMouse* Mouse;
 
 	// 매니저 선언
 

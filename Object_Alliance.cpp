@@ -23,10 +23,21 @@ bool Object_Alliance::init(int _tag)
 	if (m_iTag == SWORD)
 	{
 		allianceSprite = Sprite::create("sword_walk_0.png");
+		allianceSprite->setScale(0.2f);
+	}
+
+	else if (m_iTag == M_NINJA)
+	{
+		allianceSprite = Sprite::create("m_ninja_walk_0.png");
+		allianceSprite->setScale(0.28f);
+	}
+	else if (m_iTag == F_NINJA)
+	{
+		allianceSprite = Sprite::create("f_ninja_walk_0.png");
+		allianceSprite->setScale(0.25f);
 	}
 
 	allianceSprite->setPosition(Point(3000, 3000)); //화면 밖에 미리 만들어 놓기.
-	allianceSprite->setScale(0.2f);
 	allianceSprite->setAnchorPoint(Point(0, 0));
 	this->addChild(allianceSprite);
 
@@ -69,9 +80,12 @@ void Object_Alliance::animation(float _dt)
 	case WALK:
 
 		if (m_iTag == SWORD) //칼든 동료가 걸을 때 애니메이션
-		{
 			sprintf_s(szString, "%s%d.png", "sword_walk_", m_iFrame);
-		}
+		else if (m_iTag == M_NINJA)
+			sprintf_s(szString, "%s%d.png", "m_ninja_walk_", m_iFrame);
+		else if (m_iTag == F_NINJA)
+			sprintf_s(szString, "%s%d.png", "f_ninja_walk_", m_iFrame);
+
 
 		allianceSprite->initWithFile(szString);
 
@@ -83,7 +97,7 @@ void Object_Alliance::animation(float _dt)
 			m_iFrame++;
 		}
 
-		if (m_iTag == SWORD)
+		if (m_iTag == SWORD || m_iTag == M_NINJA || m_iTag == F_NINJA)
 		{
 			if (m_iFrame > 9)
 				m_iFrame = 0;
@@ -93,9 +107,11 @@ void Object_Alliance::animation(float _dt)
 
 	case ATTACK:
 		if (m_iTag == SWORD)
-		{
 			sprintf_s(szString, "%s%d.png", "sword_attack_", m_iFrame);
-		}
+		else if (m_iTag == M_NINJA)
+			sprintf_s(szString, "%s%d.png", "m_ninja_attack_", m_iFrame);
+		else if (m_iTag == F_NINJA)
+			sprintf_s(szString, "%s%d.png", "f_ninja_attack_", m_iFrame);
 
 		allianceSprite->initWithFile(szString);
 		m_fFrameDelay += _dt;
@@ -120,7 +136,7 @@ void Object_Alliance::animation(float _dt)
 		if (m_iFrame == 7)
 			isAttack = false;
 
-		if (m_iTag == SWORD)
+		if (m_iTag == SWORD || m_iTag == M_NINJA || m_iTag == F_NINJA)
 		{
 			if (m_iFrame > 9)
 				m_iFrame = 0;

@@ -35,6 +35,25 @@ bool InGameInterface::init()
 	m_ChoiceInterface->setPosition(Point(0, 0));
 	this->addChild(m_ChoiceInterface);
 
+
+	m_SwordMenu = Sprite::create("Sword_Menu_Image.png");
+	m_SwordMenu->setAnchorPoint(Point(0, 0));
+	m_SwordMenu->setScale(0.2f);
+	m_SwordMenu->setPosition(Point(35, 10));
+	this->addChild(m_SwordMenu);
+
+	m_M_NinjaMenu = Sprite::create("M_Ninja_MenuImage.png");
+	m_M_NinjaMenu->setAnchorPoint(Point(0, 0));
+	m_M_NinjaMenu->setScale(0.3f);
+	m_M_NinjaMenu->setPosition(Point(178, 15));
+	this->addChild(m_M_NinjaMenu);
+
+	m_F_NinjaMenu = Sprite::create("F_Ninja_MenuImage.png");
+	m_F_NinjaMenu->setAnchorPoint(Point(0, 0));
+	m_F_NinjaMenu->setScale(0.3f);
+	m_F_NinjaMenu->setPosition(Point(321, 15));
+	this->addChild(m_F_NinjaMenu);
+
 	this->schedule(schedule_selector(InGameInterface::tick));
 
 	return true;

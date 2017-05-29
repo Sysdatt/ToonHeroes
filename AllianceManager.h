@@ -14,6 +14,8 @@ public:
 	void action(float _dt);
 
 	void createSwordAlliance(); // 칼든 동료 소환
+	void createNinJaMaleAlliance();
+	void createNinJaFemaleAlliance();
 
 	void dealloc();		// 동적 할당 풀기 ( 종료 시 or 스테이지 이동 시 시행 )
 };

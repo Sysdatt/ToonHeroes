@@ -18,10 +18,10 @@ void AllianceManager::setScene(Layer* _curScene)	//이미지 설정 , 기준점 변경, 좌
 
 		m_pAllianceList[i]->init(curType);
 
-		/*if (i >= 50 && i < 100)
-			curType = ARROW;
-		else if (i >= 100 && i < 150)
-			curType = SKILL;*/
+		if (i == 50)
+			curType = M_NINJA;
+		else if (i == 100)
+			curType = F_NINJA;
 
 		_curScene->addChild(m_pAllianceList[i]);
 	}
@@ -43,6 +43,40 @@ void AllianceManager::createSwordAlliance()
 	for (int i = 0; i < MAX_ALLIANCE; i++)
 	{
 		if (m_pAllianceList[i]->m_iTag == SWORD)
+		{
+			if (m_pAllianceList[i]->m_bLiveFlag == false)
+			{
+				m_pAllianceList[i]->m_iHP = 5;
+				m_pAllianceList[i]->m_bLiveFlag = true;
+				m_pAllianceList[i]->allianceSprite->setPosition(Core::sharedManager()->PlayerStartPos); //스프라이트의 위치를 변경해줘야함.
+				return;
+			}
+		}
+	}
+}
+
+void AllianceManager::createNinJaMaleAlliance()
+{
+	for (int i = 0; i < MAX_ALLIANCE; i++)
+	{
+		if (m_pAllianceList[i]->m_iTag == M_NINJA)
+		{
+			if (m_pAllianceList[i]->m_bLiveFlag == false)
+			{
+				m_pAllianceList[i]->m_iHP = 5;
+				m_pAllianceList[i]->m_bLiveFlag = true;
+				m_pAllianceList[i]->allianceSprite->setPosition(Core::sharedManager()->PlayerStartPos); //스프라이트의 위치를 변경해줘야함.
+				return;
+			}
+		}
+	}
+}
+
+void AllianceManager::createNinJaFemaleAlliance()
+{
+	for (int i = 0; i < MAX_ALLIANCE; i++)
+	{
+		if (m_pAllianceList[i]->m_iTag == F_NINJA)
 		{
 			if (m_pAllianceList[i]->m_bLiveFlag == false)
 			{

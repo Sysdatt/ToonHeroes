@@ -27,5 +27,4 @@ public:
 	virtual bool init(int _tag);
 	void action(float _dt);
 	void animation(float _dt);
-	void setSpeed(float _speed) { m_fMoveSpeed = _speed; }
 };

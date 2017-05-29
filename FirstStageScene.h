@@ -10,12 +10,18 @@ public:
 
 	// °´Ã¼
 	Object_BackGround* m_pBackGround;
+	EventListenerMouse* Mouse;
+
+	bool isMouseDown;
 
 public:
 	static Scene* createScene();
-
+	
 	virtual bool init();
 	void tick(float _dt);
+
+	void FirstStageScene::onMouseDown(Event* event);
+
 
 	// implement the "static create()" method manually
 	CREATE_FUNC(FirstStageScene);
