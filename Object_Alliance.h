@@ -9,7 +9,6 @@ class Object_Alliance : public Sprite
 public:
 	Sprite*		allianceSprite;
 	Object_Tower* m_pTargetTower;
-	Point		m_pos;
 	float		m_fMoveSpeed;
 	int			m_iTag;			//객체 태그
 	int			m_iObjTag;		//플레이어 인가? 적인가? 충돌체크 용
@@ -18,7 +17,6 @@ public:
 
 	int			m_iState;
 	int			m_iPrevState;
-	int			m_iDirection;
 	int			m_iFrame;
 	float		m_fFrameDelay;
 	bool		isAttack;

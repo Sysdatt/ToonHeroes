@@ -8,7 +8,6 @@ bool Object_Alliance::init(int _tag)
 
 	m_iState		= WALK;
 	m_iPrevState	= WALK;
-	m_iDirection	= RIGHT;
 	m_fMoveSpeed	= 100.0f;
 	m_pTargetTower	= NULL;
 	
@@ -127,9 +126,13 @@ void Object_Alliance::animation(float _dt)
 			if (m_pTargetTower != NULL)
 			{
 				m_pTargetTower->m_iHp--;
+				Core::sharedManager()->IM->subTowerHp(PLAYER); // 인터페이스에서 체력을 깍자
 				isAttack = true;
 				if (m_pTargetTower->m_iHp == 0)
+				{
 					m_pTargetTower->setLiveFlag(false);
+					Core::sharedManager()->TM.getEnemyTower()->m_pTowerImage->setPosition(Point(3000, 3000)); // 라이브플래그가 False일 경우(죽었을 경우) 안보이는 위치로 사진을 보내버림.
+				}
 			}
 		}
 

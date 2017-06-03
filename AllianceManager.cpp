@@ -40,16 +40,21 @@ void AllianceManager::action(float _dt)
 
 void AllianceManager::createSwordAlliance()
 {
-	for (int i = 0; i < MAX_ALLIANCE; i++)
+	if (Core::sharedManager()->m_iMP >= 20.f)
 	{
-		if (m_pAllianceList[i]->m_iTag == SWORD)
+		for (int i = 0; i < MAX_ALLIANCE; i++)
 		{
-			if (m_pAllianceList[i]->m_bLiveFlag == false)
+			if (m_pAllianceList[i]->m_iTag == SWORD)
 			{
-				m_pAllianceList[i]->m_iHP = 5;
-				m_pAllianceList[i]->m_bLiveFlag = true;
-				m_pAllianceList[i]->allianceSprite->setPosition(Core::sharedManager()->PlayerStartPos); //스프라이트의 위치를 변경해줘야함.
-				return;
+				if (m_pAllianceList[i]->m_bLiveFlag == false)
+				{
+					Core::sharedManager()->m_iMP -= 20.f;
+					Core::sharedManager()->IM->PlusMp(Core::sharedManager()->m_iMP);
+					m_pAllianceList[i]->m_iHP = 5;
+					m_pAllianceList[i]->m_bLiveFlag = true;
+					m_pAllianceList[i]->allianceSprite->setPosition(Core::sharedManager()->PlayerStartPos); //스프라이트의 위치를 변경해줘야함.
+					return;
+				}
 			}
 		}
 	}
@@ -57,16 +62,21 @@ void AllianceManager::createSwordAlliance()
 
 void AllianceManager::createNinJaMaleAlliance()
 {
-	for (int i = 0; i < MAX_ALLIANCE; i++)
+	if (Core::sharedManager()->m_iMP >= 25.f)
 	{
-		if (m_pAllianceList[i]->m_iTag == M_NINJA)
+		for (int i = 0; i < MAX_ALLIANCE; i++)
 		{
-			if (m_pAllianceList[i]->m_bLiveFlag == false)
+			if (m_pAllianceList[i]->m_iTag == M_NINJA)
 			{
-				m_pAllianceList[i]->m_iHP = 5;
-				m_pAllianceList[i]->m_bLiveFlag = true;
-				m_pAllianceList[i]->allianceSprite->setPosition(Core::sharedManager()->PlayerStartPos); //스프라이트의 위치를 변경해줘야함.
-				return;
+				if (m_pAllianceList[i]->m_bLiveFlag == false)
+				{
+					Core::sharedManager()->m_iMP -= 25.f;
+					Core::sharedManager()->IM->PlusMp(Core::sharedManager()->m_iMP);
+					m_pAllianceList[i]->m_iHP = 5;
+					m_pAllianceList[i]->m_bLiveFlag = true;
+					m_pAllianceList[i]->allianceSprite->setPosition(Core::sharedManager()->PlayerStartPos); //스프라이트의 위치를 변경해줘야함.
+					return;
+				}
 			}
 		}
 	}
@@ -74,16 +84,21 @@ void AllianceManager::createNinJaMaleAlliance()
 
 void AllianceManager::createNinJaFemaleAlliance()
 {
-	for (int i = 0; i < MAX_ALLIANCE; i++)
+	if (Core::sharedManager()->m_iMP >= 30.f)
 	{
-		if (m_pAllianceList[i]->m_iTag == F_NINJA)
+		for (int i = 0; i < MAX_ALLIANCE; i++)
 		{
-			if (m_pAllianceList[i]->m_bLiveFlag == false)
+			if (m_pAllianceList[i]->m_iTag == F_NINJA)
 			{
-				m_pAllianceList[i]->m_iHP = 5;
-				m_pAllianceList[i]->m_bLiveFlag = true;
-				m_pAllianceList[i]->allianceSprite->setPosition(Core::sharedManager()->PlayerStartPos); //스프라이트의 위치를 변경해줘야함.
-				return;
+				if (m_pAllianceList[i]->m_bLiveFlag == false)
+				{
+					Core::sharedManager()->m_iMP -= 30.f;
+					Core::sharedManager()->IM->PlusMp(Core::sharedManager()->m_iMP);
+					m_pAllianceList[i]->m_iHP = 5;
+					m_pAllianceList[i]->m_bLiveFlag = true;
+					m_pAllianceList[i]->allianceSprite->setPosition(Core::sharedManager()->PlayerStartPos); //스프라이트의 위치를 변경해줘야함.
+					return;
+				}
 			}
 		}
 	}

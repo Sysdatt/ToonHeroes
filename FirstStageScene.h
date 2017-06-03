@@ -7,6 +7,7 @@ class FirstStageScene : public Layer
 public:
 	float m_fMoveSpeed; // 횡스크롤 시, 사용되는 변수.   레이어 움직임 스피드
 
+	CCProgressTimer* m_pHPProgress;
 
 	// 객체
 	Object_BackGround* m_pBackGround;
@@ -19,7 +20,7 @@ public:
 	
 	virtual bool init();
 	void tick(float _dt);
-
+	void PlusTickMp(float _dt);
 	void FirstStageScene::onMouseDown(Event* event);
 
 

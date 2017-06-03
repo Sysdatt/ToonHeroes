@@ -7,6 +7,7 @@ Scene* FirstStageScene::createScene()
 	Scene* pScene = Scene::create();
 	FirstStageScene* mainLayer = FirstStageScene::create();
 	InGameInterface* InterfaceLayer = InGameInterface::create();
+	Core::sharedManager()->IM = InterfaceLayer; // 인터페이스 매니저에 생성한 인터페이스 포인터 전달
 	pScene->addChild(mainLayer);
 	pScene->addChild(InterfaceLayer);
 	
@@ -16,8 +17,10 @@ Scene* FirstStageScene::createScene()
 bool FirstStageScene::init()
 {
 	if( !Layer::init() ) return false;
+
 	isMouseDown = false;
 	m_fMoveSpeed = 300.0f;
+	Core::sharedManager()->m_iMP = 0.f;
 	Core::sharedManager()->m_fOriginX = 0.f; // 스크롤 기준 좌표
 	//마우스 이벤트 객체
 	auto listener = EventListenerMouse::create();
@@ -37,11 +40,18 @@ bool FirstStageScene::init()
 	Core::sharedManager()->AM.setScene(this);
 
 	this->schedule(schedule_selector(FirstStageScene::tick));
-	
+	this->schedule(schedule_selector(FirstStageScene::PlusTickMp), 0.5f); // 0.5초마다 실행 시킴
 
 	return true;
 }
 
+void FirstStageScene::PlusTickMp(float _dt)
+{
+	Core::sharedManager()->m_iMP += 1.f;
+	if (Core::sharedManager()->m_iMP >= 100.0f)
+		Core::sharedManager()->m_iMP = 100.0f;
+	Core::sharedManager()->IM->PlusMp(Core::sharedManager()->m_iMP);
+}
 void FirstStageScene::tick(float _dt)
 {
 	 Point layerPos = this->getPosition();
@@ -58,22 +68,12 @@ void FirstStageScene::tick(float _dt)
 		Core::sharedManager()->m_fOriginX += m_fMoveSpeed * _dt;
 	}
 
-	if (GetAsyncKeyState('A') && Core::sharedManager()->isKeyDown == false) // 테스트 A누르면 칼든 동료 소환
-	{
-		Core::sharedManager()->isKeyDown = true;
-		Core::sharedManager()->AM.createSwordAlliance();
-	}
-	else if (!GetAsyncKeyState('A'))
-	{
-		Core::sharedManager()->isKeyDown = false;
-	}
-
 	Core::sharedManager()->AM.action(_dt);
 
 	this->setPosition(layerPos);
 }
 
-void FirstStageScene::onMouseDown(Event* event)
+void FirstStageScene::onMouseDown(Event* event)	// 마우스 움직임 좌표
 {
 	EventMouse* e = (EventMouse*)event;
 	float mx = e->getCursorX();
@@ -91,5 +91,4 @@ void FirstStageScene::onMouseDown(Event* event)
 	{
 		Core::sharedManager()->AM.createNinJaFemaleAlliance();
 	}
-
 }
