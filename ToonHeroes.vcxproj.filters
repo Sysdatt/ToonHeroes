@@ -19,6 +19,9 @@
     <Filter Include="src\Manager">
       <UniqueIdentifier>{1c8492ba-a9fb-43b0-9c37-7e10a02d4160}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\MenuLayer">
+      <UniqueIdentifier>{96715aee-5f60-45b4-92fb-731610e4f5d8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -51,6 +54,21 @@
     <ClCompile Include="AllianceManager.cpp">
       <Filter>src\Manager</Filter>
     </ClCompile>
+    <ClCompile Include="MenuScene.cpp">
+      <Filter>src\CPP</Filter>
+    </ClCompile>
+    <ClCompile Include="thirdMenuLayer.cpp">
+      <Filter>src\MenuLayer</Filter>
+    </ClCompile>
+    <ClCompile Include="secondMenuLayer.cpp">
+      <Filter>src\MenuLayer</Filter>
+    </ClCompile>
+    <ClCompile Include="firstMenuLayer.cpp">
+      <Filter>src\MenuLayer</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectStageScene.cpp">
+      <Filter>src\MenuLayer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -82,6 +100,21 @@
     </ClInclude>
     <ClInclude Include="AllianceManager.h">
       <Filter>src\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuScene.h">
+      <Filter>src\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="thirdMenuLayer.h">
+      <Filter>src\MenuLayer</Filter>
+    </ClInclude>
+    <ClInclude Include="secondMenuLayer.h">
+      <Filter>src\MenuLayer</Filter>
+    </ClInclude>
+    <ClInclude Include="firstMenuLayer.h">
+      <Filter>src\MenuLayer</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectStageScene.h">
+      <Filter>src\MenuLayer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

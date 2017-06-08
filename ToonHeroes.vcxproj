@@ -147,24 +147,34 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
     <ClCompile Include="AllianceManager.cpp" />
     <ClCompile Include="Core.cpp" />
+    <ClCompile Include="firstMenuLayer.cpp" />
     <ClCompile Include="FirstStageScene.cpp" />
     <ClCompile Include="InGameInterface.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MenuScene.cpp" />
     <ClCompile Include="Object_Alliance.cpp" />
     <ClCompile Include="Object_BackGround.cpp" />
     <ClCompile Include="Object_Tower.cpp" />
+    <ClCompile Include="secondMenuLayer.cpp" />
+    <ClCompile Include="SelectStageScene.cpp" />
+    <ClCompile Include="thirdMenuLayer.cpp" />
     <ClCompile Include="TowerManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\AppDelegate.h" />
     <ClInclude Include="AllianceManager.h" />
     <ClInclude Include="Core.h" />
+    <ClInclude Include="firstMenuLayer.h" />
     <ClInclude Include="FirstStageScene.h" />
     <ClInclude Include="InGameInterface.h" />
     <ClInclude Include="main.h" />
+    <ClInclude Include="MenuScene.h" />
     <ClInclude Include="Object_Alliance.h" />
     <ClInclude Include="Object_BackGround.h" />
     <ClInclude Include="Object_Tower.h" />
+    <ClInclude Include="secondMenuLayer.h" />
+    <ClInclude Include="SelectStageScene.h" />
+    <ClInclude Include="thirdMenuLayer.h" />
     <ClInclude Include="TowerManager.h" />
   </ItemGroup>
   <ItemGroup>

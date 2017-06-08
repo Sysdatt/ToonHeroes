@@ -18,7 +18,6 @@ bool FirstStageScene::init()
 {
 	if( !Layer::init() ) return false;
 
-	isMouseDown = false;
 	m_fMoveSpeed = 300.0f;
 	Core::sharedManager()->m_iMP = 0.f;
 	Core::sharedManager()->m_fOriginX = 0.f; // 스크롤 기준 좌표

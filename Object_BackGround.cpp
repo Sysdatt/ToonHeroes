@@ -4,7 +4,6 @@
 bool Object_BackGround::init()
 {
 	if (!Sprite::init()) return false;
-
 	if (Core::sharedManager()->m_iStage == 1)
 	{
 		m_pBackImage = Sprite::create("forest_bg1.png");
