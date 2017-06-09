@@ -1,4 +1,5 @@
 #include "MenuScene.h"
+#include "SelectStageScene.h"
 
 Scene* MenuScene::createScene()
 {
@@ -70,8 +71,7 @@ void MenuScene::callThirdLayer()
 	Core::sharedManager()->CurMenu = 2;
 	Core::sharedManager()->firstTemp->setPosition(Point(10000, 10000));
 	Core::sharedManager()->secondTemp->setPosition(Point(10000, 10000));
-	Core::sharedManager()->thirdTemp->setPosition(Point(0, 0));
-		
+	Core::sharedManager()->thirdTemp->setPosition(Point(0, 0));		
 }
 
 void MenuScene::onMouseDown(Event* event)	// 마우스 움직임 좌표
@@ -109,7 +109,7 @@ void MenuScene::onMouseDown(Event* event)	// 마우스 움직임 좌표
 	{
 		if (mx >= 260 && mx <= 499 && my <= -184 && my >= -554)
 		{
-			// 캠페인 눌렸을 때
+			Director::getInstance()->replaceScene(SelectStageScene::createScene());
 		}
 		else if (mx >= 533 && mx <= 766 && my <= -182 && my >= -548)
 		{
