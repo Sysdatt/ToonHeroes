@@ -61,6 +61,7 @@ Object_Tower* TowerManager::CollisionCheckAboutTower(Object_Alliance* _alliance)
 	}
 
 	return NULL;
+<<<<<<< HEAD
 }
 
 Object_Tower * TowerManager::CollisionCheckAboutTower_Enemy(CEnemy * _enemy)
@@ -87,3 +88,6 @@ Object_Tower * TowerManager::CollisionCheckAboutTower_Enemy(CEnemy * _enemy)
 
 	return NULL;
 }
+=======
+}
+>>>>>>> origin/master

@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="win32">
+      <UniqueIdentifier>{84a8ebd7-7cf0-47f6-b75e-d441df67da40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resource">
+      <UniqueIdentifier>{715254bc-d70b-4ec5-bf29-467dd3ace079}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{bb6c862e-70e9-49d9-81b7-3829a6f50471}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Header">
+      <UniqueIdentifier>{d4057902-4af2-4340-b320-3e7765615a35}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\CPP">
+      <UniqueIdentifier>{fcfa759b-6747-4ec3-acba-4f379af208cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Manager">
+      <UniqueIdentifier>{1c8492ba-a9fb-43b0-9c37-7e10a02d4160}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\MenuLayer">
+      <UniqueIdentifier>{96715aee-5f60-45b4-92fb-731610e4f5d8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>win32</Filter>
+    </ClCompile>
+    <ClCompile Include="Core.cpp">
+      <Filter>win32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\AppDelegate.cpp">
+      <Filter>src\CPP</Filter>
+    </ClCompile>
+    <ClCompile Include="Object_BackGround.cpp">
+      <Filter>src\CPP</Filter>
+    </ClCompile>
+    <ClCompile Include="Object_Tower.cpp">
+      <Filter>src\CPP</Filter>
+    </ClCompile>
+    <ClCompile Include="FirstStageScene.cpp">
+      <Filter>src\CPP</Filter>
+    </ClCompile>
+    <ClCompile Include="InGameInterface.cpp">
+      <Filter>src\CPP</Filter>
+    </ClCompile>
+    <ClCompile Include="Object_Alliance.cpp">
+      <Filter>src\CPP</Filter>
+    </ClCompile>
+    <ClCompile Include="TowerManager.cpp">
+      <Filter>src\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="AllianceManager.cpp">
+      <Filter>src\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuScene.cpp">
+      <Filter>src\CPP</Filter>
+    </ClCompile>
+    <ClCompile Include="thirdMenuLayer.cpp">
+      <Filter>src\MenuLayer</Filter>
+    </ClCompile>
+    <ClCompile Include="secondMenuLayer.cpp">
+      <Filter>src\MenuLayer</Filter>
+    </ClCompile>
+    <ClCompile Include="firstMenuLayer.cpp">
+      <Filter>src\MenuLayer</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectStageScene.cpp">
+      <Filter>src\MenuLayer</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="main.h">
+      <Filter>win32</Filter>
+    </ClInclude>
+    <ClInclude Include="Core.h">
+      <Filter>win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AppDelegate.h">
+      <Filter>src\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Object_BackGround.h">
+      <Filter>src\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Object_Tower.h">
+      <Filter>src\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="FirstStageScene.h">
+      <Filter>src\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="InGameInterface.h">
+      <Filter>src\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Object_Alliance.h">
+      <Filter>src\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="TowerManager.h">
+      <Filter>src\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="AllianceManager.h">
+      <Filter>src\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuScene.h">
+      <Filter>src\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="thirdMenuLayer.h">
+      <Filter>src\MenuLayer</Filter>
+    </ClInclude>
+    <ClInclude Include="secondMenuLayer.h">
+      <Filter>src\MenuLayer</Filter>
+    </ClInclude>
+    <ClInclude Include="firstMenuLayer.h">
+      <Filter>src\MenuLayer</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectStageScene.h">
+      <Filter>src\MenuLayer</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="game.rc">
+      <Filter>resource</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>
