@@ -18,12 +18,8 @@ bool CEnemy::init(int _tag)
 	if (!Sprite::init()) return false;
 
 	m_pEnemySprite = NULL;
-	//m_pEnemyHPImagefront = NULL;
-	//m_pEnemyHPImageback = NULL;
 	m_iState = WALK;
 	m_iPrevState = WALK;
-	//m_iDirection = 0;
-	//m_pos = 0, 0;
 	m_fMoveSpeed = 100.0f;
 
 	m_iTag = _tag;
@@ -38,32 +34,20 @@ bool CEnemy::init(int _tag)
 
 	if (m_iTag == ENEMY_ZOMBIE_FE)
 	{
-		m_pEnemySprite = Sprite::create("Zombie_Fe Idle 1.png");
-		m_pEnemySprite->setAnchorPoint(Point(0.f, 0.f));
+		m_pEnemySprite = Sprite::create("Zombie_Fe Walk 1.png");
 	}
 
 	if (m_iTag == ENEMY_ZOMBIE_MALE)
 	{
-		m_pEnemySprite = Sprite::create("Zombie_Male Idle 1.png");
-		m_pEnemySprite->setAnchorPoint(Point(0.f, 0.f));
+		m_pEnemySprite = Sprite::create("Zombie_Male Walk 1.png");
 	}
 	m_pEnemySprite->setFlipX(true);
 	m_pEnemySprite->setPosition(Point(3000, 3000)); //화면 밖에 미리 만들어 놓기.
 	m_pEnemySprite->setScale(0.2f);
 	m_pEnemySprite->setAnchorPoint(Point(0, 0));
 
-	//m_pEnemyHPImagefront = Sprite::create("Hp_front.png");
-	//m_pEnemyHPImagefront->setAnchorPoint(Point(0, 0));
-	//m_pEnemyHPImagefront->setPosition(3000, 3000);
-
-	//m_pEnemyHPImageback = Sprite::create("Hp_back.png");
-	//m_pEnemyHPImageback->setAnchorPoint(Point(0, 0));
-	//m_pEnemyHPImageback->setPosition(3000, 3000);
-
 	this->addChild(m_pEnemySprite);
 
-	//this->addChild(m_pEnemyHPImagefront);
-	//this->addChild(m_pEnemyHPImageback);
 	return true;
 }
 
@@ -101,9 +85,7 @@ void CEnemy::animation(float _dt)
 	{
 	case WALK:
 	{
-		/*auto animation = Animation::create();
-		animation->setDelayPerUnit(m_fFrameDelay);
-		*/
+
 		if (m_iTag == ENEMY_ZOMBIE_FE)
 			sprintf_s(szString, "%s%d.png", "Zombie_Fe Walk ", m_iFrame);
 

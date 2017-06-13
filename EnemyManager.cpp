@@ -61,7 +61,7 @@ void CEnemyManager::createZombie_Fe()
 			{
 				m_pEnemyList[i]->m_iHP = 30;
 				m_pEnemyList[i]->m_bLiveFlag = true;
-				m_pEnemyList[i]->getEnemySprite()->setPosition(Core::sharedManager()->PlayerStartPos); //스프라이트의 위치를 변경해줘야함.
+				m_pEnemyList[i]->getEnemySprite()->setPosition(Core::sharedManager()->EnemyStartPos); //스프라이트의 위치를 변경해줘야함.
 				return;
 			}
 		}
@@ -69,31 +69,6 @@ void CEnemyManager::createZombie_Fe()
 
 
 }
-
-/*
-void AllianceManager::createSwordAlliance()
-{
-if (Core::sharedManager()->m_iMP >= 20.f)
-{
-for (int i = 0; i < MAX_ALLIANCE; i++)
-{
-if (m_pAllianceList[i]->m_iTag == SWORD)
-{
-if (m_pAllianceList[i]->m_bLiveFlag == false)
-{
-Core::sharedManager()->m_iMP -= 20.f;
-Core::sharedManager()->IM->PlusMp(Core::sharedManager()->m_iMP);
-m_pAllianceList[i]->m_iHP = 5;
-m_pAllianceList[i]->m_bLiveFlag = true;
-m_pAllianceList[i]->allianceSprite->setPosition(Core::sharedManager()->PlayerStartPos); //스프라이트의 위치를 변경해줘야함.
-return;
-}
-}
-}
-}
-}*/
-
-
 
 void CEnemyManager::createZombie_Male()
 {

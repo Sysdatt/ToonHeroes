@@ -69,6 +69,12 @@
     <ClCompile Include="SelectStageScene.cpp">
       <Filter>src\MenuLayer</Filter>
     </ClCompile>
+    <ClCompile Include="EnemyManager.cpp">
+      <Filter>src\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>src\Header</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -115,6 +121,15 @@
     </ClInclude>
     <ClInclude Include="SelectStageScene.h">
       <Filter>src\MenuLayer</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyManager.h">
+      <Filter>src\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>src\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="content.h">
+      <Filter>win32</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

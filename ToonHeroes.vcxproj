@@ -147,6 +147,8 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
     <ClCompile Include="AllianceManager.cpp" />
     <ClCompile Include="Core.cpp" />
+    <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="EnemyManager.cpp" />
     <ClCompile Include="firstMenuLayer.cpp" />
     <ClCompile Include="FirstStageScene.cpp" />
     <ClCompile Include="InGameInterface.cpp" />
@@ -163,7 +165,10 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
   <ItemGroup>
     <ClInclude Include="..\Classes\AppDelegate.h" />
     <ClInclude Include="AllianceManager.h" />
+    <ClInclude Include="content.h" />
     <ClInclude Include="Core.h" />
+    <ClInclude Include="Enemy.h" />
+    <ClInclude Include="EnemyManager.h" />
     <ClInclude Include="firstMenuLayer.h" />
     <ClInclude Include="FirstStageScene.h" />
     <ClInclude Include="InGameInterface.h" />

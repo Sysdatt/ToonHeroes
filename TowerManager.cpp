@@ -76,7 +76,7 @@ Object_Tower * TowerManager::CollisionCheckAboutTower_Enemy(CEnemy * _enemy)
 			{
 				float x = m_pTowerList[i]->getPosition().x;
 				float x2 = _enemy->getPosition().x;
-				if (m_pTowerList[i]->getPosition().x - _enemy->getEnemySprite()->getPosition().x > 50.0f)
+				if (m_pTowerList[i]->getPosition().x - _enemy->getEnemySprite()->getPosition().x > 10.0f)
 				{
 					_enemy->setState(ATTACK);
 					return m_pTowerList[i];
