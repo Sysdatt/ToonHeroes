@@ -62,3 +62,28 @@ Object_Tower* TowerManager::CollisionCheckAboutTower(Object_Alliance* _alliance)
 
 	return NULL;
 }
+
+Object_Tower * TowerManager::CollisionCheckAboutTower_Enemy(CEnemy * _enemy)
+{
+	for (int i = 0; i < MAX_TOWER; i++)
+	{
+		if (m_pTowerList[i] == NULL) continue;
+		if (m_pTowerList[i]->getLiveFlag() == false) continue;
+
+		if (m_pTowerList[i]->getTag() == P_TOWER)
+		{
+			if (_enemy->m_iObjTag == ENEMY)
+			{
+				float x = m_pTowerList[i]->getPosition().x;
+				float x2 = _enemy->getPosition().x;
+				if (m_pTowerList[i]->getPosition().x - _enemy->getEnemySprite()->getPosition().x > 50.0f)
+				{
+					_enemy->setState(ATTACK);
+					return m_pTowerList[i];
+				}
+			}
+		}
+	}
+
+	return NULL;
+}

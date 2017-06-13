@@ -1,7 +1,7 @@
 #pragma once
 #include "Object_Tower.h"
 #include "Object_Alliance.h"
-
+#include "Enemy.h"
 #define MAX_TOWER		2 // 적 , 플레이어
 
 class TowerManager
@@ -16,4 +16,5 @@ public:
 	Object_Tower* getEnemyTower() { return m_pTowerList[1]; }
 
 	Object_Tower* CollisionCheckAboutTower(Object_Alliance* _alliance);
+	Object_Tower* CollisionCheckAboutTower_Enemy(CEnemy* _enemy);
 };
