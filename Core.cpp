@@ -2,7 +2,7 @@
 
 Core::Core() {
 	m_iStage = 1; // 1스테이지 부터 시작
-	m_iMaxStage = 3;
+	m_iMaxStage = 1;
 	CurMenu = 0; // 메인메뉴 초기 Start,Exit
 	PlayerStartPos = Point(200, 168);
 	isKeyDown = false;

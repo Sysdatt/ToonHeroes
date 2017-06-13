@@ -131,7 +131,7 @@ void SelectStageScene::onMouseDown(Event* event)	// 마우스 움직임 좌표
 
 	else if (mx >= 948 && mx <= 1016 && my <= -10 && my >= -73)
 	{
-		Core::sharedManager()->CurMenu = 2;
+		Core::sharedManager()->CurMenu = 1;
 		Director::getInstance()->replaceScene(MenuScene::createScene());
 	}
 }
