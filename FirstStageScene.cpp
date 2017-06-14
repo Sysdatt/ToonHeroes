@@ -7,7 +7,7 @@
 
 //#define ONE_SECOND 5000
 float timer = 0;
-int sex=0;
+int sex = 0;
 
 Scene* FirstStageScene::createScene()
 {
@@ -64,7 +64,7 @@ void FirstStageScene::PlusTickMp(float _dt)
 void FirstStageScene::delayTime(float _dt) {
 
 	timer += _dt;
-	if (timer>_dt*900) {
+	if (timer>_dt * 700) {
 		if (sex == 1) {
 			Core::sharedManager()->EM.createZombie_Fe();
 			sex = 0;
@@ -86,16 +86,16 @@ void FirstStageScene::tick(float _dt)
 	/*
 	delay = delay + 1;
 	if (delay > 1) {
-		Core::sharedManager()->EM.createZombie_Fe();
-		delay = 0;
+	Core::sharedManager()->EM.createZombie_Fe();
+	delay = 0;
 	}*/
 	delayTime(_dt);
-	
+
 	if (GetAsyncKeyState(VK_RIGHT) && Core::sharedManager()->m_fOriginX >= -1024.f)
 	{
 		layerPos.x -= m_fMoveSpeed * _dt;
 		Core::sharedManager()->m_fOriginX -= m_fMoveSpeed * _dt;
-//		delayTime();
+		//		delayTime();
 	}
 
 	if (GetAsyncKeyState(VK_LEFT) && Core::sharedManager()->m_fOriginX < 0.f)
@@ -103,7 +103,7 @@ void FirstStageScene::tick(float _dt)
 		layerPos.x += m_fMoveSpeed * _dt;
 		Core::sharedManager()->m_fOriginX += m_fMoveSpeed * _dt;
 	}
-	
+
 
 	Core::sharedManager()->AM.action(_dt);
 	Core::sharedManager()->EM.action(_dt);
@@ -112,11 +112,11 @@ void FirstStageScene::tick(float _dt)
 /*
 void delayTime()
 {
-	int sex = 0;
-	time = time + 10;
-	if (time>=50) {
-		Core::sharedManager()->EM.createZombie_Fe();
-	}
+int sex = 0;
+time = time + 10;
+if (time>=50) {
+Core::sharedManager()->EM.createZombie_Fe();
+}
 }
 */
 void FirstStageScene::onMouseDown(Event* event)	// 마우스 움직임 좌표
