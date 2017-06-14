@@ -21,6 +21,7 @@ bool CEnemy::init(int _tag)
 	m_iState = WALK;
 	m_iPrevState = WALK;
 	m_fMoveSpeed = 100.0f;
+	m_pTargetTower = NULL;
 
 	m_iTag = _tag;
 	m_iObjTag = ENEMY;
@@ -29,6 +30,7 @@ bool CEnemy::init(int _tag)
 	m_fFrameDelay = 0.0f;
 	m_bLiveFlag = false;
 	isAttack = false;
+	AllianceAttack = false;
 
 
 
@@ -44,7 +46,7 @@ bool CEnemy::init(int _tag)
 	m_pEnemySprite->setFlipX(true);
 	m_pEnemySprite->setPosition(Point(3000, 3000)); //화면 밖에 미리 만들어 놓기.
 	m_pEnemySprite->setScale(0.2f);
-	m_pEnemySprite->setAnchorPoint(Point(0, 0));
+	m_pEnemySprite->setAnchorPoint(Point(0.5, 0.5));
 
 	this->addChild(m_pEnemySprite);
 
@@ -58,13 +60,14 @@ void CEnemy::action(float _dt)
 	m_iState = WALK;
 
 	m_pTargetTower = Core::sharedManager()->TM.CollisionCheckAboutTower_Enemy(this);
+	Core::sharedManager()->EM.CollisionCheckWithAlliance(this);
+
+	animation(_dt);
 
 	if (m_iState == WALK)
 	{
 		pos.x -= m_fMoveSpeed * _dt;
 	}
-
-	animation(_dt);
 
 	m_pEnemySprite->setPosition(pos);
 }
@@ -77,6 +80,7 @@ void CEnemy::animation(float _dt)
 		m_iFrame = 0;
 		m_fFrameDelay = 0.0f;
 		isAttack = false;
+		AllianceAttack = false;
 	}
 
 	char szString[128] = { 0 };
@@ -137,9 +141,15 @@ void CEnemy::animation(float _dt)
 				isAttack = true;
 				if (m_pTargetTower->m_iHp == 0)
 				{
-					m_pTargetTower->setLiveFlag(false);
 					Core::sharedManager()->TM.getPlayerTower()->m_pTowerImage->setPosition(Point(3000, 3000));
+					m_pTargetTower->setLiveFlag(false);
+					Director::getInstance()->replaceScene(SelectStageScene::createScene());
 				}
+			}
+			else
+			{
+				isAttack = true;
+				AllianceAttack = true;
 			}
 		}
 
@@ -155,4 +165,9 @@ void CEnemy::animation(float _dt)
 
 	break;
 	}
+}
+
+void	CEnemy::Hit()
+{
+	m_iHP--;
 }

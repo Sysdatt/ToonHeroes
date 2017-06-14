@@ -59,7 +59,7 @@ void CEnemyManager::createZombie_Fe()
 		{
 			if (m_pEnemyList[i]->m_bLiveFlag == false)
 			{
-				m_pEnemyList[i]->m_iHP = 30;
+				m_pEnemyList[i]->m_iHP = 5;
 				m_pEnemyList[i]->m_bLiveFlag = true;
 				m_pEnemyList[i]->getEnemySprite()->setPosition(Core::sharedManager()->EnemyStartPos); //스프라이트의 위치를 변경해줘야함.
 				return;
@@ -78,10 +78,44 @@ void CEnemyManager::createZombie_Male()
 		{
 			if (m_pEnemyList[i]->getLiveFlag() == false)
 			{
-				m_pEnemyList[i]->setHp(30);
+				m_pEnemyList[i]->setHp(5);
 				m_pEnemyList[i]->setLiveFlag(true);
 				m_pEnemyList[i]->getEnemySprite()->setPosition(Core::sharedManager()->EnemyStartPos); //스프라이트의 위치를 변경해줘야함.
 				return;
+			}
+		}
+	}
+}
+
+void CEnemyManager::CollisionCheckWithAlliance(CEnemy* _enemy)
+{
+	Object_Alliance** AllianceTemp = Core::sharedManager()->AM.getAllianceList();
+
+	if (_enemy->m_bLiveFlag == true)
+	{
+		for (int j = 0; j < MAX_ALLIANCE; j++)
+		{
+			if (AllianceTemp[j]->m_bLiveFlag == false)
+				continue;
+			else
+			{
+				if (AllianceTemp[j]->allianceSprite->getPosition().x - _enemy->m_pEnemySprite->getPosition().x < 50.f
+					&& AllianceTemp[j]->allianceSprite->getPosition().x - _enemy->m_pEnemySprite->getPosition().x > -50.f)
+				{
+					_enemy->m_iState = ATTACK;
+					if (_enemy->AllianceAttack == true)
+					{
+						AllianceTemp[j]->Hit();
+						if (AllianceTemp[j]->m_iHP == 0)
+						{
+							AllianceTemp[j]->allianceSprite->setPosition(Point(3000, 3000));
+							AllianceTemp[j]->m_bLiveFlag = false;
+							AllianceTemp[j]->m_iState = WALK;
+							AllianceTemp[j]->m_iPrevState = WALK;
+						}
+						_enemy->AllianceAttack = false;
+					}
+				}
 			}
 		}
 	}

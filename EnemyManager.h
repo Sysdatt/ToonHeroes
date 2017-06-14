@@ -22,8 +22,10 @@ public:
 	void createZombie_Fe();
 	void createZombie_Male();
 
+	void CollisionCheckWithAlliance(CEnemy* _enemy);
+
 	void dealloc();		// 동적 할당 풀기 ( 종료 시 or 스테이지 이동 시 시행 )
 
 public:
-	CEnemy* getEnemyList() { return *m_pEnemyList; }
+	CEnemy** getEnemyList() { return m_pEnemyList; }
 };

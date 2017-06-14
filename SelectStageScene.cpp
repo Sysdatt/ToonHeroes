@@ -116,16 +116,19 @@ void SelectStageScene::onMouseDown(Event* event)	// 마우스 움직임 좌표
 
 	if (mx >= 307 && mx <= 376 && my <= -195 && my >= -255)
 	{
+		Core::sharedManager()->m_iStage = 1;
 		Director::getInstance()->replaceScene(FirstStageScene::createScene());
 	}
 
 	else if (mx >= 507 && mx <= 576 && my <= -195 && my >= -255 && StageLabel2 != NULL)
 	{
+		Core::sharedManager()->m_iStage = 2;
 		// 스테이지 씬 2로 넘기기
 	}
 
 	else if (mx >= 707 && mx <= 776 && my <= -195 && my >= -255 && StageLabel3 != NULL)
 	{
+		Core::sharedManager()->m_iStage = 3;
 		// 스테이지 씬3로 넘기기
 	}
 

@@ -73,7 +73,7 @@
       <Filter>src\Manager</Filter>
     </ClCompile>
     <ClCompile Include="Enemy.cpp">
-      <Filter>src\Header</Filter>
+      <Filter>src\CPP</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -17,5 +17,8 @@ public:
 	void createNinJaMaleAlliance();
 	void createNinJaFemaleAlliance();
 
+	Object_Alliance** getAllianceList() { return m_pAllianceList; }
+	void CollisionCheckWithEnemy(Object_Alliance* _alliance);
+
 	void dealloc();		// 동적 할당 풀기 ( 종료 시 or 스테이지 이동 시 시행 )
 };

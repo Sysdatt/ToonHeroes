@@ -27,6 +27,7 @@ public:
 	int			m_iFrame;
 	float		m_fFrameDelay;
 	bool		isAttack;
+	bool		AllianceAttack;
 	Point		m_EnemyPos;
 
 
@@ -41,11 +42,13 @@ public:
 	Sprite*		getEnemySprite()	{ return m_pEnemySprite; }
 	int			getObjTag()			{ return m_iObjTag; }
 	int			getState()			{ return m_iState; }
+	void		Hit();
 	
 public:
 	virtual bool init(int _tag);
 	virtual void action(float _dt);
 	virtual void animation(float _dt);
 	virtual void setSpeed(float _speed) { m_fMoveSpeed = _speed; }
+
 };
 

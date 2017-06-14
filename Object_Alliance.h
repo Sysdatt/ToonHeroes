@@ -20,9 +20,11 @@ public:
 	int			m_iFrame;
 	float		m_fFrameDelay;
 	bool		isAttack;
+	bool		enemyAttack;
 	
 public:
 	virtual bool init(int _tag);
 	void action(float _dt);
 	void animation(float _dt);
+	void	Hit();
 };

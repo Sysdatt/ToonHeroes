@@ -18,6 +18,7 @@ bool Object_Alliance::init(int _tag)
 	m_fFrameDelay	= 0.0f;
 	m_bLiveFlag		= false;
 	isAttack		= false;
+	enemyAttack		= false;
 
 	if (m_iTag == SWORD)
 	{
@@ -50,13 +51,14 @@ void Object_Alliance::action(float _dt)
 	m_iState = WALK;
 	
 	m_pTargetTower = Core::sharedManager()->TM.CollisionCheckAboutTower(this);
+	Core::sharedManager()->AM.CollisionCheckWithEnemy(this);
+
+	animation(_dt);
 
 	if (m_iState == WALK)
 	{
 		pos.x += m_fMoveSpeed * _dt;
 	}
-
-	animation(_dt);
 
 	allianceSprite->setPosition(pos);
 
@@ -70,6 +72,7 @@ void Object_Alliance::animation(float _dt)
 		m_iFrame = 0;
 		m_fFrameDelay = 0.0f;
 		isAttack = false;
+		enemyAttack = false;
 	}
 
 	char szString[128] = { 0 };
@@ -132,12 +135,23 @@ void Object_Alliance::animation(float _dt)
 				{
 					m_pTargetTower->setLiveFlag(false);
 					Core::sharedManager()->TM.getEnemyTower()->m_pTowerImage->setPosition(Point(3000, 3000)); // 라이브플래그가 False일 경우(죽었을 경우) 안보이는 위치로 사진을 보내버림.
+					Core::sharedManager()->m_iMaxStage++;
+					if (Core::sharedManager()->m_iMaxStage == 4)
+						Core::sharedManager()->m_iMaxStage = 3;
+					Director::getInstance()->replaceScene(SelectStageScene::createScene());
 				}
+			}
+			else
+			{
+				isAttack = true;
+				enemyAttack = true;
 			}
 		}
 
 		if (m_iFrame == 7)
+		{
 			isAttack = false;
+		}
 
 		if (m_iTag == SWORD || m_iTag == M_NINJA || m_iTag == F_NINJA)
 		{
@@ -147,4 +161,9 @@ void Object_Alliance::animation(float _dt)
 
 		break;
 	}
+}
+
+void	Object_Alliance::Hit()
+{
+	m_iHP--;
 }

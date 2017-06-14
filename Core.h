@@ -26,7 +26,7 @@ enum OBJECT_TAG {
 };
 
 enum OBJECT_STATE {
-	IDLE, WALK, ATTACK
+	IDLE, WALK, ATTACK, DEAD
 };
 enum DIRECTION {
 	LEFT, RIGHT
@@ -75,7 +75,6 @@ public: // 싱글톤 멤버 선언
 	CEnemyManager EM;
 	TowerManager TM;	// 타워 객체들 세팅 및 관리
 	AllianceManager AM;	// 플레이어 동료 객체들 세팅 및 관리
-	
 
 };
 
